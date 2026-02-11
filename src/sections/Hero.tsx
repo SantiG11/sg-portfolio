@@ -9,7 +9,8 @@
           </div>
 
           <h1 className="fade-up fade-up-delay-1 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            I build responsive <span className="text-emerald-300">React apps</span>
+            I build responsive{" "}
+            <span className="text-emerald-300">React apps</span>
             with clean UI and dependable logic.
           </h1>
 
@@ -70,7 +71,7 @@
           </div>
 
           <div className="rounded-xl border border-white/10 bg-[#05070a] px-4 py-3 text-xs text-zinc-400">
-            <span className="mono text-emerald-300">stack</span> React -
+            <span className="mono text-emerald-300">stack </span> React -
             TypeScript - Tailwind - Vite
           </div>
         </div>
