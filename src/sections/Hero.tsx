@@ -10,8 +10,8 @@
 
           <h1 className="fade-up fade-up-delay-1 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             I build responsive{" "}
-            <span className="text-emerald-300">React apps</span>
-            with clean UI and dependable logic.
+            <span className="text-emerald-300">React apps</span> with clean UI
+            and dependable logic.
           </h1>
 
           <p className="fade-up fade-up-delay-2 max-w-2xl text-lg text-zinc-300">
@@ -32,17 +32,6 @@
             >
               Contact / Links
             </a>
-          </div>
-
-          <div className="fade-up fade-up-delay-3 flex flex-wrap gap-2 pt-2">
-            {["React", "TypeScript", "Tailwind", "Vite"].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200"
-              >
-                {item}
-              </span>
-            ))}
           </div>
         </div>
 
@@ -68,11 +57,6 @@
                 <span>{item}</span>
               </div>
             ))}
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-[#05070a] px-4 py-3 text-xs text-zinc-400">
-            <span className="mono text-emerald-300">stack </span> React -
-            TypeScript - Tailwind - Vite
           </div>
         </div>
       </div>
