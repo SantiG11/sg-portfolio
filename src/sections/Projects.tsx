@@ -1,30 +1,59 @@
-﻿import ProjectCard from "../components/ProjectCard";
+﻿import wardrobeTrackerScreen from "../assets/projects/wardrobe-tracker-screen.webp";
+import formula1Screen from "../assets/projects/formula-1-two-omega.vercel.app_screenshot.png";
+import blackjackScreen from "../assets/projects/Blackjack-Screenshot.png";
+import ProjectCard from "../components/ProjectCard";
 import Section from "../components/Section";
 
 const projects = [
   {
-    name: "Client Onboarding Flow",
-    websiteUrl: "https://example.com/onboarding-flow",
-    githubUrl: "https://github.com/example/onboarding-flow",
+    name: "Wardrobe Tracker",
+    websiteUrl: "https://wardrobe-tracker-one.vercel.app/",
+    githubUrl: "https://github.com/SantiG11/wardrobe-tracker",
     description:
-      "A multi-step onboarding experience with clear progress, inline validation, and warm microcopy.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Figma"],
+      "Wardrobe Tracker is a responsive React application for organizing a personal clothing collection and planning future purchases. It lets users keep track of the clothes they already own, manage a wishlist of items they want to buy, and see a quick overview of their wardrobe and shopping plans from a simple dashboard.",
+    technologies: [
+      "React",
+      "React Router",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Git",
+    ],
+    imageSrc: wardrobeTrackerScreen,
+    imageAlt: "Wardrobe Tracker desktop screenshot",
   },
   {
-    name: "Analytics Dashboard",
-    websiteUrl: "https://example.com/analytics-dashboard",
-    githubUrl: "https://github.com/example/analytics-dashboard",
+    name: "Formula 1",
+    websiteUrl: "https://formula-1-two-omega.vercel.app",
+    githubUrl: "https:github.com/SantiG11/formula-1",
     description:
-      "A data-focused dashboard with reusable cards, filter controls, and responsive chart sections.",
-    technologies: ["React", "TypeScript", "Chart.js", "Tailwind CSS", "Git"],
+      "A fan-made Formula 1 web application that displays information about the current season, including the next race, latest race results, championship standings, drivers, teams, circuits, and the race calendar.",
+    technologies: [
+      "React",
+      "React Router",
+      "TypeScript",
+      "Tailwind CSS",
+      "Git",
+    ],
+    imageSrc: formula1Screen,
+    imageAlt: "Formula 1 project desktop screenshot",
   },
   {
-    name: "Marketing Site Refresh",
-    websiteUrl: "https://example.com/marketing-refresh",
-    githubUrl: "https://github.com/example/marketing-refresh",
+    name: "Blackjack",
+    websiteUrl: "https://blackjack-taupe-beta.vercel.app",
+    githubUrl: "https://github.com/SantiG11/blackjack",
     description:
-      "A modern marketing site redesign focused on content hierarchy, performance, and conversion-friendly CTAs.",
-    technologies: ["React", "Tailwind CSS", "Vite", "Figma", "GitHub"],
+      "This project simulates a classic Blackjack table where users can add virtual money, place bets, receive cards, and play against the dealer. The game does not include advanced Blackjack actions such as split, double down, insurance, or surrender.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Git",
+      "GitHub",
+    ],
+    imageSrc: blackjackScreen,
+    imageAlt: "Blackjack site desktop screenshot",
   },
 ];
 
@@ -44,6 +73,8 @@ export default function Projects() {
             githubUrl={project.githubUrl}
             description={project.description}
             technologies={project.technologies}
+            imageSrc={project.imageSrc}
+            imageAlt={project.imageAlt}
           />
         ))}
       </div>

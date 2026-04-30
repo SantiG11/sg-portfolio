@@ -4,6 +4,8 @@ type ProjectCardProps = {
   githubUrl: string;
   description: string;
   technologies: string[];
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 function isExternalLink(url: string) {
@@ -16,16 +18,27 @@ export default function ProjectCard({
   githubUrl,
   description,
   technologies,
+  imageSrc,
+  imageAlt,
 }: ProjectCardProps) {
   return (
     <article className="w-full rounded-2xl border border-white/10 bg-white/5 p-6">
       <h3 className="text-xl font-semibold text-white">{name}</h3>
 
       <div className="mt-4">
-        <div
-          aria-label={`${name} image placeholder`}
-          className="aspect-[16/9] w-full rounded-xl border border-white/10 bg-black"
-        />
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt={imageAlt ?? `${name} screenshot`}
+            className="aspect-[16/9] w-full rounded-xl border border-white/10 object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            aria-label={`${name} image placeholder`}
+            className="aspect-[16/9] w-full rounded-xl border border-white/10 bg-black"
+          />
+        )}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
