@@ -1,51 +1,9 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Section from "../components/Section";
+import { contactMethods } from "../data/contacts";
+import type { ContactMethod } from "../data/contacts";
 
-type ContactItem = {
-  id: string;
-  label: string;
-  hint: string;
-  value: string;
-  icon: "linkedin" | "github" | "email" | "cv";
-  type: "link" | "email-copy";
-};
-
-const contacts: ContactItem[] = [
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    hint: "Fastest response",
-    value: "https://www.linkedin.com/in/santiago-l-gomez/",
-    icon: "linkedin",
-    type: "link",
-  },
-  {
-    id: "github",
-    label: "GitHub",
-    hint: "Code and repositories",
-    value: "https://github.com/SantiG11",
-    icon: "github",
-    type: "link",
-  },
-  {
-    id: "email",
-    label: "Email",
-    hint: "For opportunities",
-    value: "santigomez1129@gmail.com",
-    icon: "email",
-    type: "email-copy",
-  },
-  {
-    id: "cv",
-    label: "CV (PDF)",
-    hint: "Download resume",
-    value: "#",
-    icon: "cv",
-    type: "link",
-  },
-];
-
-function ContactIcon({ icon }: { icon: ContactItem["icon"] }) {
+function ContactIcon({ icon }: { icon: ContactMethod["icon"] }) {
   if (icon === "linkedin") {
     return (
       <svg
@@ -110,10 +68,12 @@ export default function Contact() {
     null,
   );
   const timeoutRef = useRef<number | null>(null);
-  const cardBaseClass =
+  const cardInteractiveClass =
     "group relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:cursor-pointer hover:border-emerald-300/40 hover:bg-white/[0.07]";
+  const cardDisabledClass =
+    "relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] p-4 opacity-70";
   const actionTextClass =
-    "inline-flex w-16 shrink-0 justify-end text-sm font-medium text-emerald-200";
+    "inline-flex w-20 shrink-0 justify-end text-sm font-medium text-emerald-200";
 
   useEffect(() => {
     return () => {
@@ -151,8 +111,8 @@ export default function Contact() {
       title="Contact / Links"
       subtitle="Best places to reach me and see more of my work."
     >
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {contacts.map((item) => {
+      <div className="grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))]">
+        {contactMethods.map((item) => {
           const content = (
             <>
               <div className="min-w-0 flex-1">
@@ -165,7 +125,7 @@ export default function Contact() {
                       <p className="truncate text-base font-semibold text-white">
                         {item.label}
                       </p>
-                      {item.type === "email-copy" && (
+                      {item.interactionType === "email-copy" && (
                         <span
                           aria-live="polite"
                           className={`pointer-events-none inline-flex items-center whitespace-nowrap rounded-full border text-[10px] font-medium transition-all duration-300 ${
@@ -184,24 +144,39 @@ export default function Contact() {
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-zinc-400">{item.hint}</p>
+                    <p className="break-words text-xs text-zinc-400">
+                      {item.hint}
+                    </p>
                   </div>
                 </div>
               </div>
               <span className={actionTextClass}>
-                {item.type === "link" ? "Open" : "Copy"}
+                {item.actionLabel ??
+                  (item.interactionType === "link" ? "Open" : "Copy")}
               </span>
             </>
           );
 
-          if (item.type === "link") {
+          if (item.disabled) {
+            return (
+              <div
+                key={item.id}
+                aria-disabled="true"
+                className={cardDisabledClass}
+              >
+                {content}
+              </div>
+            );
+          }
+
+          if (item.interactionType === "link") {
             return (
               <a
                 key={item.id}
                 href={item.value}
-                target={item.value.startsWith("http") ? "_blank" : undefined}
-                rel={item.value.startsWith("http") ? "noreferrer" : undefined}
-                className={`${cardBaseClass} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50`}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
+                className={`${cardInteractiveClass} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50`}
               >
                 {content}
               </a>
@@ -213,7 +188,7 @@ export default function Contact() {
               key={item.id}
               type="button"
               onClick={() => handleCopyEmail(item.value)}
-              className={`${cardBaseClass} w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50`}
+              className={`${cardInteractiveClass} w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50`}
             >
               {content}
             </button>
