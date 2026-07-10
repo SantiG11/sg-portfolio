@@ -12,9 +12,9 @@ export default function Section({
   children,
 }: SectionProps) {
   return (
-    <section id={id} className="py-16 sm:py-24">
+    <section id={id} className="scroll-mt-8 py-12 sm:py-16 lg:py-[4.5rem]">
       {(title || subtitle) && (
-        <header className="fade-up mb-10 space-y-3">
+        <header className="mb-7 space-y-3 sm:mb-8">
           {title && (
             <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {title}
@@ -25,7 +25,7 @@ export default function Section({
           )}
         </header>
       )}
-      <div className="fade-up fade-up-delay-1">{children}</div>
+      <div>{children}</div>
     </section>
   );
 }

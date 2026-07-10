@@ -1,7 +1,7 @@
 ﻿export default function Hero() {
   return (
-    <section className="relative py-16 sm:py-24">
-      <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+    <section className="relative py-14 sm:py-20 lg:py-24">
+      <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
         <div className="space-y-6">
           <div className="fade-up inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-200/80">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -22,13 +22,13 @@
           <div className="fade-up fade-up-delay-3 flex flex-wrap gap-3">
             <a
               href="#projects"
-              className="rounded-xl bg-emerald-400 px-5 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-emerald-300"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-zinc-900 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090c]"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              className="rounded-xl border border-white/10 px-5 py-2 text-sm font-semibold text-white transition hover:border-emerald-300 hover:text-emerald-200"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-emerald-300 hover:text-emerald-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090c]"
             >
               Contact / Links
             </a>
