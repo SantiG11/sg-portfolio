@@ -131,7 +131,10 @@ export default function ProjectCard({
 
         <p className="mt-4 break-words text-sm text-zinc-300">{description}</p>
 
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap items-center gap-2">
+          <li className="mr-1 text-xs underline font-bold uppercase tracking-wider text-zinc-400">
+            Tech stack:
+          </li>
           {technologies.map((item) => (
             <li
               key={item}

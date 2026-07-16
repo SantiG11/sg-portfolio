@@ -9,13 +9,41 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "front-end",
     title: "Front-end",
-    description: "Building polished interfaces with component-driven workflows.",
-    skills: ["React", "TypeScript", "Tailwind", "HTML", "CSS", "JavaScript"],
+    description:
+      "Building responsive interfaces with modern React and strong web fundamentals.",
+    skills: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    id: "ui-styling",
+    title: "UI & Styling",
+    description:
+      "Creating clean layouts, reusable visual patterns, and responsive designs.",
+    skills: [
+      "Tailwind CSS",
+      "Responsive Design",
+      "Accessibility",
+      "CSS Grid",
+      "Flexbox",
+    ],
+  },
+  {
+    id: "react-ecosystem",
+    title: "React Ecosystem",
+    description:
+      "Structuring React apps with routing, reusable components, and client-side data.",
+    skills: [
+      "React Router",
+      "Component Architecture",
+      "State Management",
+      "REST APIs",
+      "Local Storage",
+    ],
   },
   {
     id: "tools",
     title: "Tools",
-    description: "Shipping efficiently with clean handoffs and tidy repos.",
-    skills: ["Vite", "Git", "GitHub", "Figma"],
+    description:
+      "Working with the tools needed to build, version, and deploy front-end projects.",
+    skills: ["Vite", "Git", "GitHub", "Vercel", "Figma"],
   },
 ];

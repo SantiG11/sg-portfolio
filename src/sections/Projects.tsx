@@ -7,7 +7,7 @@ export default function Projects() {
     <Section
       id="projects"
       title="Projects"
-      subtitle="Selected work with consistent image space and complete project metadata."
+      subtitle="Selected React projects focused on responsive interfaces, data organization, and interactive user flows."
     >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {projects.map((project) => (

@@ -18,7 +18,7 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    hint: "Fastest response",
+    hint: "Professional profile",
     value: "https://www.linkedin.com/in/santiago-l-gomez/",
     icon: "linkedin",
     interactionType: "link",
@@ -28,7 +28,7 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "github",
     label: "GitHub",
-    hint: "Code and repositories",
+    hint: "Projects and source code",
     value: "https://github.com/SantiG11",
     icon: "github",
     interactionType: "link",
@@ -38,7 +38,7 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "email",
     label: "Email",
-    hint: "For opportunities",
+    hint: "Open to front-end opportunities",
     value: "santigomez1129@gmail.com",
     icon: "email",
     interactionType: "email-copy",

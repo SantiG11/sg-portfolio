@@ -10,13 +10,15 @@
 
           <h1 className="fade-up fade-up-delay-1 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             I build responsive{" "}
-            <span className="text-emerald-300">React apps</span> with clean UI
-            and dependable logic.
+            <span className="text-emerald-300">React apps</span> with clean
+            interfaces and practical user flows.
           </h1>
 
           <p className="fade-up fade-up-delay-2 max-w-2xl text-lg text-zinc-300">
-            React + TypeScript + Tailwind. Focused on scalable components,
-            delightful UX, and production-ready performance.
+            I’m a front-end developer focused on React, TypeScript, and Tailwind
+            CSS. I build portfolio projects that combine responsive design,
+            organized components, and clear client-side logic while working
+            toward my first front-end role.
           </p>
 
           <div className="fade-up fade-up-delay-3 flex flex-wrap gap-3">
@@ -41,16 +43,16 @@
               What I Focus On
             </p>
             <p className="mt-3 text-lg text-zinc-100">
-              Thoughtful interfaces that feel fast, intentional, and easy to
-              trust.
+              Practical interfaces that are easy to use, understand, and
+              maintain.
             </p>
           </div>
 
           <div className="space-y-3 text-sm text-zinc-300">
             {[
-              "Design systems and UI consistency",
-              "Performance-minded React architecture",
-              "Collaborative, maintainable codebases",
+              "Responsive React applications",
+              "Clean UI and reusable components",
+              "Client-side data, routing, and state",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 rounded-full bg-emerald-400" />

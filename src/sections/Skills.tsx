@@ -8,7 +8,7 @@ export default function Skills() {
       title="Skills"
       subtitle="Core tools and strengths that power my builds."
     >
-      <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {skillGroups.map((group) => (
           <article
             key={group.id}
