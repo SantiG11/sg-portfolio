@@ -38,7 +38,7 @@ export const contactMethods: ContactMethod[] = [
   {
     id: "email",
     label: "Email",
-    hint: "Open to front-end opportunities",
+    hint: "Reach me by email",
     value: "santigomez1129@gmail.com",
     icon: "email",
     interactionType: "email-copy",
@@ -46,12 +46,12 @@ export const contactMethods: ContactMethod[] = [
   },
   {
     id: "cv",
-    label: "CV (PDF)",
-    hint: "Resume coming soon",
-    value: "#",
+    label: "CV",
+    hint: "Open my resume",
+    value: "/Santiago_Gomez_CV.pdf",
     icon: "cv",
     interactionType: "link",
-    actionLabel: "Soon",
-    disabled: true,
+    actionLabel: "Open",
+    external: true,
   },
 ];
