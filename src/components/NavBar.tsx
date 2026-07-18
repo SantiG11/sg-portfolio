@@ -11,9 +11,18 @@ export default function NavBar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4">
         <a
           href="#"
-          className="rounded-lg px-2 py-1.5 text-base font-semibold tracking-tight text-white transition sm:text-lg"
+          className="inline-flex items-center gap-2.5 rounded-xl px-2 py-1.5 text-white transition hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090c]"
+          aria-label="Go to top"
         >
-          Santi
+          <img
+            src="/favicon.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-8 w-8 shrink-0 rounded-xl"
+          />
+          <span className="text-base font-semibold tracking-tight sm:text-lg">
+            <span className="hidden sm:inline">Santiago Gómez</span>
+          </span>
         </a>
         <div className="flex min-w-0 items-center gap-1.5 sm:gap-5">
           {links.map((l) => (
