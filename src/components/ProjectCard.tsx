@@ -3,6 +3,7 @@ import type { Project } from "../data/projects";
 type ProjectCardProps = Pick<
   Project,
   | "name"
+  | "id"
   | "websiteUrl"
   | "githubUrl"
   | "description"
@@ -17,8 +18,9 @@ type ProjectLinkProps = {
   variant: "website" | "github";
   children: React.ReactNode;
 };
+import { useLanguage } from "../i18n/LanguageProvider";
 
-const statusLabels: Record<NonNullable<Project["status"]>, string> = {
+const statusLabelsDefault: Record<NonNullable<Project["status"]>, string> = {
   live: "Live",
   "in-progress": "In progress",
   archived: "Archived",
@@ -73,6 +75,7 @@ function ProjectLink({ href, variant, children }: ProjectLinkProps) {
 }
 
 export default function ProjectCard({
+  id,
   name,
   websiteUrl,
   githubUrl,
@@ -82,15 +85,16 @@ export default function ProjectCard({
   imageAlt,
   status,
 }: ProjectCardProps) {
+  const { t } = useLanguage();
   return (
     <article className="w-full rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="flex flex-wrap items-start gap-2">
         <h3 className="min-w-0 flex-1 break-words text-xl font-semibold text-white">
-          {name}
+          {t.projects.items[id as keyof typeof t.projects.items]?.name ?? name}
         </h3>
         {status && (
           <span className="rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-1 text-xs font-medium text-sky-100">
-            {statusLabels[status]}
+            {t.projects.statusLabels[status] ?? statusLabelsDefault[status]}
           </span>
         )}
       </div>
@@ -118,22 +122,25 @@ export default function ProjectCard({
           <div className="mt-4 flex flex-wrap gap-2">
             {websiteUrl && (
               <ProjectLink href={websiteUrl} variant="website">
-                Website
+                {t.projects.links.website}
               </ProjectLink>
             )}
             {githubUrl && (
               <ProjectLink href={githubUrl} variant="github">
-                GitHub
+                {t.projects.links.github}
               </ProjectLink>
             )}
           </div>
         )}
 
-        <p className="mt-4 break-words text-sm text-zinc-300">{description}</p>
+        <p className="mt-4 break-words text-sm text-zinc-300">
+          {t.projects.items[id as keyof typeof t.projects.items]?.description ??
+            description}
+        </p>
 
         <ul className="mt-4 flex flex-wrap items-center gap-2">
           <li className="mr-1 text-xs underline font-bold uppercase tracking-wider text-zinc-400">
-            Tech stack:
+            {t.projects.links.techStack}
           </li>
           {technologies.map((item) => (
             <li

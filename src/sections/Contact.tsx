@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Section from "../components/Section";
 import { contactMethods } from "../data/contacts";
 import type { ContactMethod } from "../data/contacts";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 function ContactIcon({ icon }: { icon: ContactMethod["icon"] }) {
   if (icon === "linkedin") {
@@ -64,6 +65,7 @@ function ContactIcon({ icon }: { icon: ContactMethod["icon"] }) {
 }
 
 export default function Contact() {
+  const { t, lang } = useLanguage();
   const [copyFeedback, setCopyFeedback] = useState<"success" | "error" | null>(
     null,
   );
@@ -108,8 +110,8 @@ export default function Contact() {
   return (
     <Section
       id="contact"
-      title="Contact / Links"
-      subtitle="Best places to reach me and see more of my work."
+      title={t.contact.title}
+      subtitle={t.contact.subtitle}
     >
       <div className="grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))]">
         {contactMethods.map((item) => {
@@ -123,7 +125,9 @@ export default function Contact() {
                   <div className="min-w-0">
                     <div className="flex min-w-0 items-center gap-2">
                       <p className="truncate text-base font-semibold text-white">
-                        {item.label}
+                        {t.contact.methods[
+                          item.id as keyof typeof t.contact.methods
+                        ]?.label ?? item.label}
                       </p>
                       {item.interactionType === "email-copy" && (
                         <span
@@ -139,19 +143,22 @@ export default function Contact() {
                           }`}
                         >
                           {copyFeedback === "error"
-                            ? "Copy failed"
-                            : "Email copied"}
+                            ? t.contact.copyFeedback.error
+                            : t.contact.copyFeedback.success}
                         </span>
                       )}
                     </div>
                     <p className="break-words text-xs text-zinc-400">
-                      {item.hint}
+                      {t.contact.methods[
+                        item.id as keyof typeof t.contact.methods
+                      ]?.hint ?? item.hint}
                     </p>
                   </div>
                 </div>
               </div>
               <span className={actionTextClass}>
-                {item.actionLabel ??
+                {t.contact.methods[item.id as keyof typeof t.contact.methods]
+                  ?.action ??
                   (item.interactionType === "link" ? "Open" : "Copy")}
               </span>
             </>
@@ -170,10 +177,17 @@ export default function Contact() {
           }
 
           if (item.interactionType === "link") {
+            const href =
+              item.id === "cv"
+                ? lang === "es"
+                  ? "/Santiago_Gomez_ES_CV.pdf"
+                  : "/Santiago_Gomez_EN_CV.pdf"
+                : item.value;
+
             return (
               <a
                 key={item.id}
-                href={item.value}
+                href={href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noreferrer" : undefined}
                 className={`${cardInteractiveClass} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50`}

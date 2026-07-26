@@ -12,7 +12,10 @@ export default function Section({
   children,
 }: SectionProps) {
   return (
-    <section id={id} className="scroll-mt-8 py-12 sm:py-16 lg:py-[4.5rem]">
+    <section
+      id={id}
+      className="scroll-mt-20 py-12 sm:py-16 lg:scroll-mt-24 lg:py-[4.5rem]"
+    >
       {(title || subtitle) && (
         <header className="mb-7 space-y-3 sm:mb-8">
           {title && (

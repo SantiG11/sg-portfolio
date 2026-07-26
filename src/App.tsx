@@ -6,7 +6,11 @@ import Skills from "./sections/Skills";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
 
+import { useLanguage } from "./i18n/LanguageProvider";
+
 function App() {
+  const { t } = useLanguage();
+
   return (
     <div className="app-shell min-h-screen bg-[#07090c] text-zinc-100">
       <NavBar />
@@ -16,9 +20,7 @@ function App() {
         <Skills />
         <About />
         <Contact />
-        <footer className="py-12 text-sm text-zinc-400">
-          (c) {new Date().getFullYear()} Santi. Built with React + TypeScript.
-        </footer>
+        <footer className="py-12 text-sm text-zinc-400">{t.footer.text}</footer>
       </main>
     </div>
   );

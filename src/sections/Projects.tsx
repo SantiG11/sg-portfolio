@@ -1,13 +1,16 @@
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 import Section from "../components/Section";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <Section
       id="projects"
-      title="Projects"
-      subtitle="Selected React projects focused on responsive interfaces, data organization, and interactive user flows."
+      title={t.projects.title}
+      subtitle={t.projects.subtitle}
     >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {projects.map((project) => (

@@ -1,13 +1,12 @@
 import Section from "../components/Section";
 import { skillGroups } from "../data/skills";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
-    <Section
-      id="skills"
-      title="Skills"
-      subtitle="Core tools and strengths that power my builds."
-    >
+    <Section id="skills" title={t.skills.title} subtitle={t.skills.subtitle}>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {skillGroups.map((group) => (
           <article
@@ -15,11 +14,15 @@ export default function Skills() {
             className="rounded-2xl border border-white/10 bg-white/5 p-6"
           >
             <h3 className="break-words text-lg font-semibold text-white">
-              {group.title}
+              {t.skills.groups[group.id as keyof typeof t.skills.groups]
+                ?.title || group.title}
             </h3>
-            {group.description && (
+            {(t.skills.groups[group.id as keyof typeof t.skills.groups]
+              ?.description ||
+              group.description) && (
               <p className="mt-2 break-words text-sm text-zinc-400">
-                {group.description}
+                {t.skills.groups[group.id as keyof typeof t.skills.groups]
+                  ?.description || group.description}
               </p>
             )}
             <ul className="mt-4 flex flex-wrap gap-2">
